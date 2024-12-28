@@ -6,11 +6,12 @@
 /*   By: jgomez-d <jgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:36:47 by jgomez-d          #+#    #+#             */
-/*   Updated: 2024/12/15 21:40:30 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2024/12/24 13:56:59 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 // ./push_swap 3 2 56
 
 void	ft_index(t_nodo **a)
