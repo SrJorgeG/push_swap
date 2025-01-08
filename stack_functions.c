@@ -3,38 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomez-d <jgomez-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:28:23 by jgomez-d          #+#    #+#             */
-/*   Updated: 2024/12/14 14:45:27 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:50:57 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// FUNCION FIXEADA??? PARA FUNCIONAR EN PUSH SWAP
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack *lst, t_nodo *new)
 {
 	t_list	*aux;
 
-	aux = *lst;
+	aux = lst->first_element;
 	if (*lst)
 	{
 		while (aux->next)
 			aux = aux->next;
 		aux->next = new;
+		lst->stack_length++;
 	}
 	else
-		*lst = new;
+	{
+		lst = initialize_stack(new);
+		if (!lst)
+			return (NULL);
+	}
 }
 
+// FUNCION FIXEADA??? PARA FUNCIONAR EN PUSH SWAP
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack *lst, t_nodo *new)
 {
-	if (!lst || !new)
+	if (!lst->first_element || !new)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new->next = lst->first_element;
+	lst->first_element = new;
+	lst->stack_length++;
 }
 
 
@@ -83,7 +91,18 @@ int	ft_lstsize(t_list *lst)
 	return (size);
 }
 
-t_stack	*initialize_stack(t_nodo )
-{
+// FUNCION QUE INICIALIZA LA CABEZERA DE LA LISTA (T_STACK)
 
+t_stack	*initialize_stack(t_nodo *head)
+{
+	t_stack	*newlst;
+
+	if (!head)
+		return (NULL);
+	lst = (t_stack)malloc(sizeof(t_stack));
+	if (!lst)
+		return (NULL);
+	newlst->first_element = head;
+	newlst->stack_length = 1;
+	return	(newlst);
 }

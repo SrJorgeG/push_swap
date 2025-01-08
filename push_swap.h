@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomez-d <jgomez-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2024/12/14 14:50:11 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:42:57 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_nodo
 {
 	int				content;
 	size_t			correct_index;
-	struct s_nodo	*next_node;
+	struct s_nodo	*next;
 }	t_nodo;
 
 typedef	struct s_head
