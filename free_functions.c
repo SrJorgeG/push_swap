@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:41:52 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 18:43:03 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 20:53:08 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void	error_exit(t_stack *stack_a, t_stack *stack_b, char **split)
 {
 	if (split)
 		split_free(split);
-	stack_free(stack_a);
-	stack_free(stack_b);
+	if (stack_a)
+		stack_free(stack_a);
+	if (stack_b)
+		stack_free(stack_b);
 	write(STDERR_FILENO, "Error\n", 6);
 	exit(1);
 }

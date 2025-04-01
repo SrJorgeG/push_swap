@@ -1,5 +1,30 @@
 #include "push_swap.h"
 
+void	print_list(t_stack *stack, const char *stack_name)
+{
+	t_nodo		*current;
+	int					position;
+
+	position = 0;
+	if (!stack)
+	{
+		printf("%s: (vacío)\n", stack_name);
+		return ;
+	}
+	current = stack->first_element;
+	printf("═════ %s ═════\n", stack_name);
+	printf("Pos │ Valor  │ Índice\n");
+
+
+	while (current != NULL)
+	{
+		printf("%-3d │ %-6d │ %-6u\n", position++,
+			current->content, current->correct_index);
+		current = current->next;
+	}
+	printf("═════════════════════\n\n");
+}
+
 int	ft_lst_contains(t_stack *stack, int num)
 {
 	t_nodo	*node;
@@ -13,7 +38,6 @@ int	ft_lst_contains(t_stack *stack, int num)
 	}
 	return (0);
 }
-
 
 int		str_isnum(char *str)
 {
@@ -50,7 +74,7 @@ void	check_split(t_stack *stack_a, t_stack *stack_b, char **split)
 		split++;
 		stack_a->stack_length++;
 	}
-	ft_free_split(tmp);
+	split_free(tmp);
 }
 
 t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
@@ -76,4 +100,22 @@ t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
 		i++;
 	}
 	return (a);
+}
+
+int	main(int ac, char *av[])
+{
+	t_stack *a;
+	t_stack *b;
+
+	b = NULL;
+	a = ft_calloc(1 , sizeof(t_stack));
+	if (!a)
+		error_exit(a, b, NULL);
+	if (ac < 2) 
+		error_exit(a, b, NULL);
+	parsing(ac, av, a, b);
+	print_list(a, "Stack A");
+	stack_free(a);
+	stack_free(b);
+	return (0);
 }

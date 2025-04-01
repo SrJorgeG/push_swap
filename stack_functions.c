@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:28:23 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 19:07:31 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 20:51:04 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ void	ft_lstadd_back(t_stack *lst, t_nodo *new)
 {
 	t_nodo	*aux;
 
+	if (!new || !lst)
+		return ;
 	aux = lst->first_element;
-	if (lst)
+	if (!aux)
+		lst->first_element = new;
+	else 
 	{
 		while (aux->next)
 			aux = aux->next;
 		aux->next = new;
 		lst->stack_length++;
-	}
-	else
-	{
-		lst = initialize_stack(new);
-		if (!lst)
-			return (NULL);
 	}
 }
 
@@ -46,23 +44,23 @@ void	ft_lstadd_front(t_stack *lst, t_nodo *new)
 }
 
 
-void	ft_lstclear(t_nodo **lst, void (*del)(void*))
-{
-	t_nodo	*temp;
-	t_nodo	*aux;
+// void	ft_lstclear(t_nodo **lst, void (*del)(void*))
+// {
+// 	t_nodo	*temp;
+// 	t_nodo	*aux;
 
-	aux = *lst;
-	if (!aux)
-		return ;
-	while (aux)
-	{
-		temp = aux->next;
-		del(aux->content);
-		free(aux);
-		aux = temp;
-	}
-	*lst = NULL;
-}
+// 	aux = *lst;
+// 	if (!aux)
+// 		return ;
+// 	while (aux)
+// 	{
+// 		temp = aux->next;
+// 		del(aux->content);
+// 		free(aux);
+// 		aux = temp;
+// 	}
+// 	*lst = NULL;
+// }
 
 t_nodo	*ft_lstnew(int content)
 {
@@ -93,16 +91,16 @@ int		ft_lstsize(t_nodo *lst)
 
 // FUNCION QUE INICIALIZA LA CABEZERA DE LA LISTA (T_STACK)
 
-t_stack	*initialize_stack(t_nodo *head)
-{
-	t_stack	*newlst;
+// t_stack	*initialize_stack(t_nodo *head)
+// {
+// 	t_stack	*newlst;
 
-	if (!head)
-		return (NULL);
-	newlst = malloc(sizeof(t_stack));
-	if (!newlst)
-		return (NULL);
-	newlst->first_element = head;
-	newlst->stack_length = 1;
-	return	(newlst);
-}
+// 	if (!head)
+// 		return (NULL);
+// 	newlst = malloc(sizeof(t_stack));
+// 	if (!newlst)
+// 		return (NULL);
+// 	newlst->first_element = head;
+// 	newlst->stack_length = 1;
+// 	return	(newlst);
+// }

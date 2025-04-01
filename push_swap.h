@@ -6,21 +6,23 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 19:24:26 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 20:41:40 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 
 typedef struct s_nodo
 {
 	int				content;
-	size_t			correct_index;
+	unsigned int	correct_index;
 	struct s_nodo	*next;
 }	t_nodo;
 
@@ -29,11 +31,6 @@ typedef	struct s_head
 	size_t	stack_length;
 	t_nodo	*first_element;
 }	t_stack;
-
-// BASIC OPPS
-
-t_nodo	*pop(t_nodo *stack);
-void	push(t_nodo *stack, int content);
 
 // SIMPLE OPPS
 
@@ -48,17 +45,15 @@ void	ss(t_stack *stack1, t_stack *stack2);
 void	rr(t_stack *stack1, t_stack *stack2);
 void	rrr(t_stack *stack1, t_stack *stack2);
 
-
 // STACK FUNCTIONS
 
-t_nodo	*ft_lstnew(void *content);
+t_nodo	*ft_lstnew(int content);
 void	ft_lstadd_back(t_stack *lst, t_nodo *new);
 void	ft_lstadd_front(t_stack *lst, t_nodo *new);
 int		ft_lstsize(t_nodo *lst);
 
 // PARSING FUNCTIONS
 
-char	**ft_split(char const *s, char c);
 long	ft_atol(const char *str);
 
 // FREE FUNCTIONS
