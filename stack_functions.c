@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:28:23 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/01/08 12:50:57 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:52:57 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 void	ft_lstadd_back(t_stack *lst, t_nodo *new)
 {
-	t_list	*aux;
+	t_nodo	*aux;
 
 	aux = lst->first_element;
-	if (*lst)
+	if (lst)
 	{
 		while (aux->next)
 			aux = aux->next;
@@ -46,10 +46,10 @@ void	ft_lstadd_front(t_stack *lst, t_nodo *new)
 }
 
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_nodo **lst, void (*del)(void*))
 {
-	t_list	*temp;
-	t_list	*aux;
+	t_nodo	*temp;
+	t_nodo	*aux;
 
 	aux = *lst;
 	if (!aux)
@@ -64,11 +64,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	*lst = NULL;
 }
 
-t_list	*ft_lstnew(void *content)
+t_nodo	*ft_lstnew(void *content)
 {
-	t_list	*lst;
+	t_nodo	*lst;
 
-	lst = (t_list *)malloc(sizeof(t_list));
+	lst = (t_nodo *)malloc(sizeof(t_nodo));
 	if (!lst)
 		return (NULL);
 	lst->content = content;
@@ -76,9 +76,9 @@ t_list	*ft_lstnew(void *content)
 	return (lst);
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_nodo *lst)
 {
-	t_list	*current;
+	t_nodo	*current;
 	int		size;
 
 	current = lst;
@@ -99,8 +99,8 @@ t_stack	*initialize_stack(t_nodo *head)
 
 	if (!head)
 		return (NULL);
-	lst = (t_stack)malloc(sizeof(t_stack));
-	if (!lst)
+	newlst = malloc(sizeof(t_stack));
+	if (!newlst)
 		return (NULL);
 	newlst->first_element = head;
 	newlst->stack_length = 1;

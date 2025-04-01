@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/01/08 12:42:57 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:04:08 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,21 @@ void	push(t_nodo *stack, int content);
 
 // SIMPLE OPPS
 
-void	sx(t_nodo *stack);
-void	px(t_nodo *stack, int content);
-void	rx(t_nodo *stack);
-void	rrx(t_nodo *stack);
+void	sx(t_stack *stack);
+void	px(t_stack *stackX, t_stack *stack2);
+void	rx(t_stack *stack);
+void	rrx(t_stack *stack);
 
 // DOUBLE OPPS
 
-void	ss(t_nodo *stack1, t_nodo *stack2);
-void	rr(t_nodo *stack1, t_nodo *stack2);
-void	rrr(t_nodo *stack1, t_nodo *stack2);
+void	ss(t_stack *stack1, t_stack *stack2);
+void	rr(t_stack *stack1, t_stack *stack2);
+void	rrr(t_stack *stack1, t_stack *stack2);
+
+
+// STACK FUNCTIONS
+
+void	ft_lstadd_back(t_stack *lst, t_nodo *new);
 
 
 
