@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 13:04:08 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:40 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_nodo
 {
@@ -50,10 +51,26 @@ void	rrr(t_stack *stack1, t_stack *stack2);
 
 // STACK FUNCTIONS
 
+t_nodo	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_stack *lst, t_nodo *new);
+void	ft_lstadd_front(t_stack *lst, t_nodo *new);
+int		ft_lstsize(t_nodo *lst);
 
+// PARSING FUNCTIONS
 
+char	**ft_split(char const *s, char c);
+int		ft_atoi(const char *str);
 
+// FREE FUNCTIONS
+
+void	stack_free(t_stack *stack);
+void	split_free(char **split);
+void	error_exit(t_stack *stack_a, t_stack *stack_b, char **split);
+
+// MAIN
+
+void		check_split(t_stack *stack_a, t_stack *stack_b, char **split);
+t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
 
 
 

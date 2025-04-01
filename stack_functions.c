@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:28:23 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 12:52:57 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:13:18 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_nodo	*ft_lstnew(void *content)
 	return (lst);
 }
 
-int	ft_lstsize(t_nodo *lst)
+int		ft_lstsize(t_nodo *lst)
 {
 	t_nodo	*current;
 	int		size;
