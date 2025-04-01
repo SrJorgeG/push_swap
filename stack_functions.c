@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:28:23 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 13:13:18 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:07:31 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_lstclear(t_nodo **lst, void (*del)(void*))
 	*lst = NULL;
 }
 
-t_nodo	*ft_lstnew(void *content)
+t_nodo	*ft_lstnew(int content)
 {
 	t_nodo	*lst;
 

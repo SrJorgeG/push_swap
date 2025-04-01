@@ -2,7 +2,7 @@
 
 #include "libft.h"
 
-size_t	ft_wlength(const char *s, char c)
+static size_t	ft_wlength(const char *s, char c)
 {
 	size_t	len;
 
@@ -12,7 +12,7 @@ size_t	ft_wlength(const char *s, char c)
 	return (len);
 }
 
-size_t	ft_chrcounter(const char *s, char c)
+static size_t	ft_chrcounter(const char *s, char c)
 {
 	size_t	cont;
 	size_t	i;
@@ -33,7 +33,7 @@ size_t	ft_chrcounter(const char *s, char c)
 	return (cont);
 }
 
-void	*ft_free(char **spl, int i)
+static void	*ft_free(char **spl, int i)
 {
 	while (i)
 		free(spl[--i]);
@@ -69,22 +69,17 @@ char	**ft_split(char const *s, char c)
 	return (spl);
 }
 
-int	ft_isspace(int c)
+long	ft_atol(const char *str)
 {
-	return (c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r' || c == ' ');
-}
-
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	res;
-	int	sign;
+	int		i;
+	long	res;
+	int		sign;
 
 	sign = 1;
 	res = 0;
 	i = 0;
-	while (ft_isspace((int)str[i]))
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')

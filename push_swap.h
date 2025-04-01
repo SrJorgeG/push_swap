@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 19:02:40 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:24:26 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		ft_lstsize(t_nodo *lst);
 // PARSING FUNCTIONS
 
 char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 
 // FREE FUNCTIONS
 
@@ -69,8 +69,10 @@ void	error_exit(t_stack *stack_a, t_stack *stack_b, char **split);
 
 // MAIN
 
-void		check_split(t_stack *stack_a, t_stack *stack_b, char **split);
-t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
+int		str_isnum(char *str);
+int		ft_lst_contains(t_stack *stack, int num);
+void	check_split(t_stack *stack_a, t_stack *stack_b, char **split);
+t_stack	*parsing(int ac, char *av[], t_stack *a, t_stack *b);
 
 
 
