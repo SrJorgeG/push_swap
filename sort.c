@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:35:51 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/04 23:06:19 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/05 19:23:50 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
 	while (iter++ < n - 3)
 	{
 		min_index = get_min_index(stack_a);
+		printf("Iter: [%d] N[%d] min index [%d]\n", iter, n, min_index);
 		if (count_r(stack_a->first_element, min_index) <= n - min_index - \
 			count_r(stack_a->first_element, min_index))
 			while (stack_a->first_element->correct_index != min_index)
@@ -97,15 +98,17 @@ void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
 	range = ft_sqrt(length) * 14 / 10;
 	while (stack_a->first_element)
 	{
+		print_list(stack_a, "A K-sort1");
+		print_list(stack_b, "B K-sort1");
 		if (stack_a->first_element->correct_index <= i)
 		{
 			px(stack_b, stack_a);
-			rx(stack_b);
 			i++;
 		}
 		else if (stack_a->first_element->correct_index <= i + range)
 		{
 			px(stack_b, stack_a);
+			rx(stack_b);
 			i++;
 		}
 		else
@@ -118,8 +121,12 @@ void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length)
 	int	rb_count;
 	int	rrb_count;
 
+	print_list(stack_a, "A K-sort2");
+	print_list(stack_b, "B K-sort2");
 	while (length - 1 >= 0)
 	{
+		print_list(stack_a, "A K-sort2");
+		print_list(stack_b, "B K-sort2");
 		rb_count = count_r(stack_b->first_element, length - 1);
 		rrb_count = (length + 3) - rb_count;
 		if (rb_count <= rrb_count)

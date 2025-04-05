@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:36:47 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/05 00:22:53 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/05 19:29:07 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ int		get_min_index(t_stack *stack)
 	t_nodo	*current;
 	int		min_index;
 
+	
 	current = stack->first_element;
 	min_index = current->correct_index;
 	while (current->next)
 	{
 		current = current->next;
 		if (current->correct_index < min_index)
-			min_index = current->correct_index;
+		min_index = current->correct_index;
 	}
 	return (min_index);
+	printf("salgo de min index\n");
 }
 
 int		count_r(t_nodo *stack, int index)
@@ -38,6 +40,7 @@ int		count_r(t_nodo *stack, int index)
 		stack = stack->next;
 		counter++;
 	}
+	printf("Salgo de count_r %d\n", counter);
 	return (counter);
 }
 
@@ -68,7 +71,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->stack_length > 7)
 	{
 		k_sort1(stack_a, stack_b, stack_a->stack_length);
-		k_sort2(stack_a, stack_b, stack_a->stack_length);
+		k_sort2(stack_a, stack_b, stack_b->stack_length);
 	}
 	else
 		error_exit(stack_a, stack_b, NULL);
