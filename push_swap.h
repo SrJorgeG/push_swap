@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 20:41:40 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/05 00:17:45 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 typedef struct s_nodo
 {
 	int				content;
-	unsigned int	correct_index;
+	int				correct_index;
 	struct s_nodo	*next;
 }	t_nodo;
 
 typedef	struct s_head
 {
-	size_t	stack_length;
+	int		stack_length;
 	t_nodo	*first_element;
 }	t_stack;
 
@@ -54,6 +54,7 @@ int		ft_lstsize(t_nodo *lst);
 
 // PARSING FUNCTIONS
 
+t_stack	*parsing(int ac, char *av[], t_stack *a, t_stack *b);
 long	ft_atol(const char *str);
 
 // FREE FUNCTIONS
@@ -64,11 +65,20 @@ void	error_exit(t_stack *stack_a, t_stack *stack_b, char **split);
 
 // MAIN
 
-int		str_isnum(char *str);
-int		ft_lst_contains(t_stack *stack, int num);
-void	check_split(t_stack *stack_a, t_stack *stack_b, char **split);
 t_stack	*parsing(int ac, char *av[], t_stack *a, t_stack *b);
 
+// SORT AND UTILS
 
+int		is_rot_sort(t_stack *stack, int min_s_index);
+void	simple_sort(t_stack *stack, int length);
+void	s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length);
+void	k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
+void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length);
+int		get_min_index(t_stack *stack);
+int		count_r(t_nodo *stack, int index);
+int		is_sorted(t_stack *stack);
+void	sort(t_stack *stack_a, t_stack *stack_b);
+
+int	ft_sqrt(int number);
 
 #endif

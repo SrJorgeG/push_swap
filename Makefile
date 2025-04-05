@@ -1,4 +1,4 @@
-CFLAGS  = -Wall -Wextra -Werror -g -O0
+CFLAGS  = -Wall -Wextra -Werror -g -fsanitize=address,leak
 NAME    = push_swap
 CHEKER    = checker
 LIB_DIR = libft

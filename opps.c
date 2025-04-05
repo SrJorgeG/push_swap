@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:04:16 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 13:07:59 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/05 04:38:01 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	rx(t_stack *stack)
 	tmp = stack->first_element;
 	ft_lstadd_back(stack, tmp);
 	stack->first_element = stack->first_element->next;
-	stack->stack_length--;
 }
 
 // rra reverse rotate a: Desplaza hacia abajo todos los elementos del stack a una posición, de forma que el último elemento se convierte en el primero.
@@ -74,5 +73,4 @@ void	rrx(t_stack *stack)
 	}
 	tmp->next = NULL;
 	ft_lstadd_front(stack, aux);
-	stack->stack_length--;
 }

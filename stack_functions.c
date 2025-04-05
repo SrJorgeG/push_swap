@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:28:23 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 20:51:04 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/05 04:37:12 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_lstadd_back(t_stack *lst, t_nodo *new)
 		while (aux->next)
 			aux = aux->next;
 		aux->next = new;
-		lst->stack_length++;
 	}
 }
 
@@ -40,7 +39,6 @@ void	ft_lstadd_front(t_stack *lst, t_nodo *new)
 		return ;
 	new->next = lst->first_element;
 	lst->first_element = new;
-	lst->stack_length++;
 }
 
 
