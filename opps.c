@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:04:16 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/05 19:31:22 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 05:43:43 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 // pa push a: Toma el primer elemento del stack b y lo pone el primero en el stack a. No hace nada si b está vacío.
 // pb push b: Toma el primer elemento del stack a y lo pone el primero en el stack b. No hace nada si a está vacío.
 
-void	px(t_stack *stackX, t_stack *stack2)
+void	px(t_stack *stackX, t_stack *stack2, char c)
 {
 	t_nodo	*tmp;
-	
-	//print_list(stackX, "Stack 1 before px");
-	//print_list(stack2, "Stack 2 before px");
 
 	tmp = stack2->first_element;
 	stack2->first_element = stack2->first_element->next;
@@ -28,14 +25,16 @@ void	px(t_stack *stackX, t_stack *stack2)
 	stackX->first_element = tmp;
 	stackX->stack_length++;
 	stack2->stack_length--;
-	//print_list(stackX, "Stack 1 before px");
-	//print_list(stack2, "Stack 2 before px");
+	if(!c)
+		return ;
+	write(1, "p", 1);
+	write(1, &c, 1);
 }
 
 // sa swap a: Intercambia los dos primeros elementos del stack a. No hace nada si hay uno o menos elementos.
 // sb swap b: Intercambia los dos primeros elementos del stack b. No hace nada si hay uno o menos elementos.
 
-void	sx(t_stack *stack)
+void	sx(t_stack *stack, char c)
 {
 	t_nodo	*tmp;
 	
@@ -45,13 +44,17 @@ void	sx(t_stack *stack)
 	stack->first_element = stack->first_element->next;
 	tmp->next = stack->first_element->next;
 	stack->first_element->next = tmp;
+	if(!c)
+		return ;
+	write(1, "p", 1);
+	write(1, &c, 1);
 }
 
 
 // ra rotate a: Desplaza hacia arriba todos los elementos del stack a una posición, de forma que el primer elemento se convierte en el último.
 // rb rotate b: Desplaza hacia arriba todos los elementos del stack b una posición, de forma que el primer elemento se convierte en el último.
 
-void	rx(t_stack *stack)
+void	rx(t_stack *stack, char c)
 {
 	t_nodo	*aux;
 	t_nodo	*tmp;
@@ -66,13 +69,17 @@ void	rx(t_stack *stack)
 		aux = aux->next;
 	aux->next = tmp;
 	tmp->next = NULL;
+	if(!c)
+		return ;
+	write(1, "p", 1);
+	write(1, &c, 1);
 	//print_list(stack, "Stack A after rx");
 }
 
 // rra reverse rotate a: Desplaza hacia abajo todos los elementos del stack a una posición, de forma que el último elemento se convierte en el primero.
 // rrb reverse rotate b: Desplaza hacia abajo todos los elementos del stack b una posición, de forma que el último elemento se convierte en el primero.
 
-void	rrx(t_stack *stack)
+void	rrx(t_stack *stack, char c)
 {
 	t_nodo	*aux;
 	t_nodo	*tmp;
@@ -89,5 +96,9 @@ void	rrx(t_stack *stack)
 	aux->next = NULL;
 	tmp->next = stack->first_element;
 	stack->first_element = tmp;
+	if(!c)
+		return ;
+	write(1, "p", 1);
+	write(1, &c, 1);
 	//print_list(stack, "Stack A After rrx");
 }
