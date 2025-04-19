@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 06:15:19 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 06:35:16 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,10 @@ int		count_r(t_nodo *stack, int index);
 int		is_sorted(t_stack *stack);
 void	sort(t_stack *stack_a, t_stack *stack_b);
 
+void	swap(int *a, int *b);
+void	correct_index_setter_2(t_stack *stack, int n, int *array);
+void	correct_index_setter_1(t_stack *stack, int n);
 int		ft_sqrt(int number);
-
 //void	print_list(t_stack *stack, const char *stack_name);
-
 
 #endif
