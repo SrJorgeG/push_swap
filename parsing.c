@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:16:20 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 06:16:39 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 23:08:17 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
 	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	while (++i < ac)
+	{
 		if (av[i][0])
 		{
 			args = ft_split(av[i], ' ');
@@ -103,6 +104,7 @@ t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
 			check_split(a, b, args);
 		}
 		else
-			error_exit(a, b, args);
+			error_exit(a, b, NULL);
+	}
 	return (a);
 }
