@@ -1,29 +1,29 @@
 #include "push_swap.h"
 
-void	print_list(t_stack *stack, const char *stack_name)
-{
-	t_nodo		*current;
-	int					position;
+// void	print_list(t_stack *stack, const char *stack_name)
+// {
+// 	t_nodo		*current;
+// 	int					position;
 
-	position = 0;
-	if (!stack)
-	{
-		printf("%s: (vacío)\n", stack_name);
-		return ;
-	}
-	current = stack->first_element;
-	printf("═════ %s ═════\n", stack_name);
-	printf("Pos │ Valor  │ Índice\n");
+// 	position = 0;
+// 	if (!stack)
+// 	{
+// 		printf("%s: (vacío)\n", stack_name);
+// 		return ;
+// 	}
+// 	current = stack->first_element;
+// 	printf("═════ %s ═════\n", stack_name);
+// 	printf("Pos │ Valor  │ Índice\n");
 
 
-	while (current != NULL)
-	{
-		printf("%-3d │ %-6d │ %-6u\n", position++,
-			current->content, current->correct_index);
-		current = current->next;
-	}
-	printf("═════════════════════\n\n");
-}
+// 	while (current != NULL)
+// 	{
+// 		printf("%-3d │ %-6d │ %-6u\n", position++,
+// 			current->content, current->correct_index);
+// 		current = current->next;
+// 	}
+// 	printf("═════════════════════\n\n");
+// }
 
 void	swap(int *a, int *b)
 {
@@ -34,29 +34,12 @@ void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	correct_index_setter(t_stack *stack, int n)
+void	correct_index_setter_2(t_stack *stack, int n, int *array)
 {
 	int	i;
 	int	j;
-	int	*array;
-	t_nodo *current;
 	t_nodo *aux;
 
-	printf("n: %d\n", n);
-	array = ft_calloc(n, sizeof(int));
-	if (!array)
-		error_exit(stack, NULL, NULL);
-	current = stack->first_element;
-	i = 0;	
-	while (current)
-	{
-		printf ("---");
-		array[i] = current->content;
-		current = current->next;
-		i++;
-	}
-	for (int xd = 0; xd < n; xd++)
-		printf("%d ", array[xd]);
 	i = 0;
 	while (++i <= n - 1)
 	{
@@ -74,6 +57,25 @@ void	correct_index_setter(t_stack *stack, int n)
 		aux = aux->next;
 	}
 	free(array);
+}
+
+void	correct_index_setter_1(t_stack *stack, int n)
+{
+	int	i;
+	int	*array;
+	t_nodo *current;
+
+	i = 0;
+	array = ft_calloc(n, sizeof(int));
+	if (!array)
+		error_exit(stack, NULL, NULL);
+	current = stack->first_element;
+	while (current)
+	{
+		array[i++] = current->content;
+		current = current->next;
+	}
+	correct_index_setter_2(stack, n, array);
 }
 
 int	ft_sqrt(int number)
@@ -109,7 +111,6 @@ int	main(int ac, char *av[])
 	parsing(ac, av, a, b);
 	correct_index_setter(a, a->stack_length);
 	sort(a, b);
-	print_list(a, "Stack A");
 	stack_free(a);
 	stack_free(b);
 	return (0);

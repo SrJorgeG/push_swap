@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:36:47 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/05 19:29:07 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 05:57:51 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		get_min_index(t_stack *stack)
 		min_index = current->correct_index;
 	}
 	return (min_index);
-	printf("salgo de min index\n");
 }
 
 int		count_r(t_nodo *stack, int index)
@@ -40,7 +39,6 @@ int		count_r(t_nodo *stack, int index)
 		stack = stack->next;
 		counter++;
 	}
-	printf("Salgo de count_r %d\n", counter);
 	return (counter);
 }
 
@@ -63,7 +61,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	if (is_sorted(stack_a))
 		return ;
 	else if (stack_a->stack_length == 2)
-		sx(stack_a);
+		sx(stack_a, 'a');
 	else if (stack_a->stack_length == 3)
 		simple_sort(stack_a, stack_a->stack_length);
 	else if (stack_a->stack_length <= 7)

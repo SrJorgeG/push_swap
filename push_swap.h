@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/05 18:11:18 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 06:15:19 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ typedef	struct s_head
 
 // SIMPLE OPPS
 
-void	sx(t_stack *stack);
-void	px(t_stack *stackX, t_stack *stack2);
-void	rx(t_stack *stack);
-void	rrx(t_stack *stack);
+void	sx(t_stack *stack, char c);
+void	px(t_stack *stackX, t_stack *stack2, char c);
+void	rx(t_stack *stack, char c);
+void	rrx(t_stack *stack, char c);
 
 // DOUBLE OPPS
 
@@ -63,10 +63,6 @@ void	stack_free(t_stack *stack);
 void	split_free(char **split);
 void	error_exit(t_stack *stack_a, t_stack *stack_b, char **split);
 
-// MAIN
-
-t_stack	*parsing(int ac, char *av[], t_stack *a, t_stack *b);
-
 // SORT AND UTILS
 
 int		is_rot_sort(t_stack *stack, int min_s_index);
@@ -79,9 +75,9 @@ int		count_r(t_nodo *stack, int index);
 int		is_sorted(t_stack *stack);
 void	sort(t_stack *stack_a, t_stack *stack_b);
 
-int	ft_sqrt(int number);
+int		ft_sqrt(int number);
 
-void	print_list(t_stack *stack, const char *stack_name);
+//void	print_list(t_stack *stack, const char *stack_name);
 
 
 #endif

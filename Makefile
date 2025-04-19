@@ -1,16 +1,22 @@
-CFLAGS  = -Wall -Wextra -Werror -g 
-#-fsanitize=address,leak
-NAME    = push_swap
-CHEKER    = checker
-LIB_DIR = libft
-LIB_NAME = $(LIB_DIR)/libft.a
-SRC     = $(wildcard *.c)
-#CHECKER_SRC = checker.c checker_aux.c get_next_line.c get_next_line_utils.c \
-sort_utils.c operations.c utils.c swap.c rotate.c reverse_rotate.c \
-lst_indexed_ext.c lst_indexed.c indexes_utils.c cost.c
-OBJ = $(SRC:.c=.o)
-#CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/19 06:13:19 by jgomez-d          #+#    #+#              #
+#    Updated: 2025/04/19 06:17:58 by jgomez-d         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
+NAME		= push_swap
+CFLAGS		= -Wall -Wextra -Werror -O3 
+#-fsanitize=address,leak
+LIB_DIR 	= libft
+LIB_NAME 	= $(LIB_DIR)/libft.a
+SRC			= double_opps.c free_functions.c main.c opps.c parsing.c push_swap.c sort.c sort_utils.c stack_functions.c
+OBJ = $(SRC:.c=.o)
 
 all: $(LIB_NAME) $(NAME)
 
@@ -20,11 +26,6 @@ $(LIB_NAME):
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^ -L$(LIB_DIR) -lft
 
-#$(CHEKER): $(CHECKER_OBJ)
-#	$(CC) $(CFLAGS) -o $@ $^ -L$(LIB_DIR) -lft
-
-#bonus: $(CHEKER)
-
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(LIB_DIR) -c $< -o $@
 
@@ -33,7 +34,7 @@ clean:
 	@make -C $(LIB_DIR) clean
 
 fclean: clean
-	@rm -f $(NAME) $(CHEKER)
+	@rm -f $(NAME) 
 	@make -C $(LIB_DIR) fclean
 
 re: fclean all

@@ -6,32 +6,29 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:41 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/01 18:21:10 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 05:54:06 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// ss swap a y swap b a la vez.
-
 void	ss(t_stack *stack1, t_stack *stack2)
 {
-	sx(stack1);
-	sx(stack2);
+	sx(stack1, 'a');
+	sx(stack2, 'b');
+	write(1, "ss", 2);
 }
-
-// rr ra y rb al mismo tiempo.
 
 void	rr(t_stack *stack1, t_stack *stack2)
 {
-	rx(stack1);	
-	rx(stack2);	
+	rx(stack1, 'a');	
+	rx(stack2, 'b');	
+	write(1, "rr", 2);
 }
-
-// rrr rra y rrb al mismo tiempo.
 
 void	rrr(t_stack *stack1, t_stack *stack2)
 {
-	rrx(stack1);	
-	rrx(stack2);
+	rrx(stack1, 'a');	
+	rrx(stack2, 'b');
+	write(1, "rrr", 3);
 }

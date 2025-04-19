@@ -6,11 +6,31 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:16:20 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/05 04:37:05 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 06:16:39 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long	ft_atol(const char *str)
+{
+	int		i;
+	long	res;
+	int		sign;
+
+	sign = 1;
+	res = 0;
+	i = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -1;
+	while (str[i] >= '0' && str[i] <= '9')
+		res = (res * 10) + (str[i++] - '0');
+	return (res * sign);
+}
 
 static int	ft_lst_contains(t_stack *stack, int num)
 {
