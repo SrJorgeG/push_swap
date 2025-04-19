@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 06:35:36 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 06:35:37 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 06:37:57 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int	main(int ac, char *av[])
 	if (ac < 2) 
 		error_exit(a, b, NULL);
 	parsing(ac, av, a, b);
-	correct_index_setter(a, a->stack_length);
+	correct_index_setter_1(a, a->stack_length);
 	sort(a, b);
 	stack_free(a);
 	stack_free(b);
