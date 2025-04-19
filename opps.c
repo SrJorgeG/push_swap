@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:04:16 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 05:50:23 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/19 06:44:17 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	px(t_stack *stackX, t_stack *stack2, char c)
 		return ;
 	write(1, "p", 1);
 	write(1, &c, 1);
+	write(1, "\n", 1);
 }
 
 void	sx(t_stack *stack, char c)
@@ -43,6 +44,8 @@ void	sx(t_stack *stack, char c)
 		return ;
 	write(1, "p", 1);
 	write(1, &c, 1);
+	write(1, "\n", 1);
+
 }
 
 void	rx(t_stack *stack, char c)
@@ -63,6 +66,7 @@ void	rx(t_stack *stack, char c)
 		return ;
 	write(1, "p", 1);
 	write(1, &c, 1);
+	write(1, "\n", 1);
 }
 
 void	rrx(t_stack *stack, char c)
@@ -85,4 +89,5 @@ void	rrx(t_stack *stack, char c)
 		return ;
 	write(1, "p", 1);
 	write(1, &c, 1);
+	write(1, "\n", 1);
 }
