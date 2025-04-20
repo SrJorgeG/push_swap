@@ -6,13 +6,13 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:35:51 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 06:19:04 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/20 18:00:27 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		is_rot_sort(t_stack *stack, int min_s_index)
+int	is_rot_sort(t_stack *stack, int min_s_index)
 {
 	int	a;
 	int	b;
@@ -70,10 +70,10 @@ void	s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
 	while (iter++ < n - 3)
 	{
 		min_index = get_min_index(stack_a);
-		if (count_r(stack_a->first_element, min_index) <= n - min_index - \
-			count_r(stack_a->first_element, min_index))
-		while (stack_a->first_element->correct_index != min_index)
-			rx(stack_a, 'a');
+		if (count_r(stack_a->first_element, min_index) <= n - min_index
+			- count_r(stack_a->first_element, min_index))
+			while (stack_a->first_element->correct_index != min_index)
+				rx(stack_a, 'a');
 		else
 			while (stack_a->first_element->correct_index != min_index)
 				rrx(stack_a, 'a');
