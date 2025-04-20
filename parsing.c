@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:16:20 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 23:08:17 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/20 17:54:50 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ long	ft_atol(const char *str)
 static int	ft_lst_contains(t_stack *stack, int num)
 {
 	t_nodo	*node;
-	
+
 	node = stack->first_element;
 	while (node)
 	{
@@ -46,7 +46,7 @@ static int	ft_lst_contains(t_stack *stack, int num)
 	return (0);
 }
 
-static int		str_isnum(char *str)
+static int	str_isnum(char *str)
 {
 	if (!str || !*str)
 		return (0);
@@ -84,12 +84,11 @@ static void	check_split(t_stack *stack_a, t_stack *stack_b, char **split)
 	split_free(tmp);
 }
 
-t_stack		*parsing(int ac, char *av[], t_stack *a, t_stack *b)
+t_stack	*parsing(int ac, char *av[], t_stack *a, t_stack *b)
 {
+	int		i;
+	char	**args;	
 
-	int			i;
-	char		**args;	
-	
 	a->stack_length = 0;
 	i = 0;
 	if (ac == 2)

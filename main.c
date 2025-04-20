@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 06:35:36 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 06:37:57 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/20 17:51:45 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // {
 // 	t_nodo		*current;
 // 	int					position;
-
+//
 // 	position = 0;
 // 	if (!stack)
 // 	{
@@ -26,8 +26,7 @@
 // 	current = stack->first_element;
 // 	printf("═════ %s ═════\n", stack_name);
 // 	printf("Pos │ Valor  │ Índice\n");
-
-
+//
 // 	while (current != NULL)
 // 	{
 // 		printf("%-3d │ %-6d │ %-6u\n", position++,
@@ -48,9 +47,9 @@ void	swap(int *a, int *b)
 
 void	correct_index_setter_2(t_stack *stack, int n, int *array)
 {
-	int	i;
-	int	j;
-	t_nodo *aux;
+	int		i;
+	int		j;
+	t_nodo	*aux;
 
 	i = 0;
 	while (++i <= n - 1)
@@ -73,9 +72,9 @@ void	correct_index_setter_2(t_stack *stack, int n, int *array)
 
 void	correct_index_setter_1(t_stack *stack, int n)
 {
-	int	i;
-	int	*array;
-	t_nodo *current;
+	int		i;
+	int		*array;
+	t_nodo	*current;
 
 	i = 0;
 	array = ft_calloc(n, sizeof(int));
@@ -109,16 +108,16 @@ int	ft_sqrt(int number)
 
 int	main(int ac, char *av[])
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
-	a = ft_calloc(1 , sizeof(t_stack));
+	a = ft_calloc(1, sizeof(t_stack));
 	if (!a)
 		error_exit(a, NULL, NULL);
-	b = ft_calloc(1 , sizeof(t_stack));
+	b = ft_calloc(1, sizeof(t_stack));
 	if (!b)
 		error_exit(a, b, NULL);
-	if (ac < 2) 
+	if (ac < 2)
 		error_exit(a, b, NULL);
 	parsing(ac, av, a, b);
 	correct_index_setter_1(a, a->stack_length);

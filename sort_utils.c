@@ -6,30 +6,29 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:36:47 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 05:57:51 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/20 17:49:30 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		get_min_index(t_stack *stack)
+int	get_min_index(t_stack *stack)
 {
 	t_nodo	*current;
 	int		min_index;
 
-	
 	current = stack->first_element;
 	min_index = current->correct_index;
 	while (current->next)
 	{
 		current = current->next;
 		if (current->correct_index < min_index)
-		min_index = current->correct_index;
+			min_index = current->correct_index;
 	}
 	return (min_index);
 }
 
-int		count_r(t_nodo *stack, int index)
+int	count_r(t_nodo *stack, int index)
 {
 	int	counter;
 
@@ -42,7 +41,7 @@ int		count_r(t_nodo *stack, int index)
 	return (counter);
 }
 
-int		is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	t_nodo	*tmp;
 

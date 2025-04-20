@@ -6,7 +6,7 @@
 /*   By: jgomez-d <jgomez-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:02:34 by jgomez-d          #+#    #+#             */
-/*   Updated: 2025/04/19 06:35:16 by jgomez-d         ###   ########.fr       */
+/*   Updated: 2025/04/20 17:48:13 by jgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_nodo
 	struct s_nodo	*next;
 }	t_nodo;
 
-typedef	struct s_head
+typedef struct s_head
 {
 	int		stack_length;
 	t_nodo	*first_element;
